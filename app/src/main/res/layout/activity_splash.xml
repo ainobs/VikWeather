@@ -14,20 +14,4 @@
         android:id="@+id/splashLogo"
         android:src="@drawable/logo" />
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hurray it works"
-        android:layout_marginTop="50dp"
-        android:textColor="#fff"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:layout_below="@+id/splashLogo"/>
-
-
-
-
-
 </RelativeLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "271878831373",
+    "project_id": "vik-weather",
+    "storage_bucket": "vik-weather.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271878831373:android:3a71f8da89ca0c3425c444",
+        "android_client_info": {
+          "package_name": "uk.ac.tees.b1636512.vikweather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271878831373-vk4jkl6fkm8pp9tqgdl65e5ch70850vh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBObhp0MAaPyXWkk6j1paYVMGr5SeHVBr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271878831373-vk4jkl6fkm8pp9tqgdl65e5ch70850vh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
