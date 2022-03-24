@@ -10,7 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VikWeather">
         <activity
+            android:name=".Signin"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Signup"
+            android:exported="false" />
+        <activity
+            android:name=".Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
