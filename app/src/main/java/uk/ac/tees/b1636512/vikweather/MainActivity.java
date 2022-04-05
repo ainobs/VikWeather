@@ -2,6 +2,7 @@ package uk.ac.tees.b1636512.vikweather;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +16,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-
+    //Initialize variables
+    private CardView location, weather;
     private FirebaseAuth mAuth;
 
     @Override
@@ -23,6 +25,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Home");
+
+        //Assign variables
+        location = findViewById(R.id.location);
+        weather = findViewById(R.id.weather);
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Location.class));
+            }
+        });
+
+        weather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
