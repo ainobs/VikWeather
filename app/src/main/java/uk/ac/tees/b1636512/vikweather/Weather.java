@@ -2,6 +2,7 @@ package uk.ac.tees.b1636512.vikweather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.icu.number.Precision;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -30,7 +31,7 @@ public class Weather extends AppCompatActivity {
     //Declare Variables
     EditText editTextCity;
     Button button;
-    TextView country, city, temp, time;
+    TextView country, city, temp, time, lat;
     ImageView imageView;
 
     @Override
@@ -45,6 +46,7 @@ public class Weather extends AppCompatActivity {
         city = findViewById(R.id.city);
         time = findViewById(R.id.time);
         temp = findViewById(R.id.temperature);
+        lat = findViewById(R.id.latitude);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +63,7 @@ public class Weather extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                // calling API
+                // calling API endpoint
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     // Get country
@@ -75,8 +77,8 @@ public class Weather extends AppCompatActivity {
 
                     //Get Temperature
                     JSONObject object2 = jsonObject.getJSONObject("main");
-                    String temp_get = object2.getString("temp");
-                    temp.setText(temp_get);
+                    int temp_get = object2.getInt("temp") - 273;
+                    temp.setText(temp_get+ "°C");
 
                     //Get weather image icon
                     JSONArray jsonArray = jsonObject.getJSONArray("weather");
@@ -86,9 +88,15 @@ public class Weather extends AppCompatActivity {
 
                     //Get date and time
                     Calendar calendar = Calendar.getInstance();
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy \nHH:mm:ss");
-                    String date = sdf.format(calendar.getTime());
+                    SimpleDateFormat std;
+                    std = new SimpleDateFormat("dd/MM/yyyy \nHH:mm:ss");
+                    String date = std.format(calendar.getTime());
                     time.setText(date);
+
+                    //Get Latitude
+                    JSONObject object4 = jsonObject.getJSONObject("coord");
+                    float lat_get = (float) object4.getDouble("lat");
+                    lat.setText(lat_get+ "° N");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
