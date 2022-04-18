@@ -18,6 +18,7 @@
         android:layout_height="50dp"
         android:text="Get Weather"
         android:textStyle="bold"
+        android:layout_marginHorizontal="10dp"
         android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
