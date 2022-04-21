@@ -9,88 +9,111 @@
     android:padding="30dp"
     tools:context=".Signup">
 
-
-
-   <ImageView
+   <ScrollView
        android:layout_width="match_parent"
-       android:layout_height="150dp"
-       android:src="@drawable/logo"/>
+       android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
 
-        >
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="200dp"
+               android:src="@drawable/logo"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:id="@+id/emailReg"
-            android:textSize="20sp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:focusable="true"
+               android:focusableInTouchMode="true">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        app:passwordToggleEnabled="true"
-        >
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Full name"
+                   android:id="@+id/NameReg"
+                   android:textSize="20sp"
+                   android:layout_marginTop="20dp"
+                   android:ems="10"
+                   android:inputType="text" />
+           </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:id="@+id/password"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:ems="10"
-            android:inputType="textPassword"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:focusable="true"
+               android:focusableInTouchMode="true">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        app:passwordToggleEnabled="true"
-        >
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Email"
+                   android:id="@+id/emailReg"
+                   android:textSize="20sp"
+                   android:layout_marginTop="15dp"
+                   android:ems="10"
+                   android:inputType="textEmailAddress" />
+           </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:ems="10"
-            android:inputType="textPassword"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:focusable="true"
+               android:focusableInTouchMode="true"
+               app:passwordToggleEnabled="true">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:textSize="20sp"
-        android:background="@drawable/button_rounded"
-        android:layout_marginTop="20dp"
-        android:id="@+id/signupBtn"
-        android:text="SIGN UP" />
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Password"
+                   android:id="@+id/password"
+                   android:layout_marginTop="15dp"
+                   android:textSize="20sp"
+                   android:ems="10"
+                   android:inputType="textPassword" />
+           </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Already have an account? Login"
-        android:layout_marginTop="20dp"
-        android:textSize="22sp"
-        android:id="@+id/signinTxt"/>
+<!--           <com.google.android.material.textfield.TextInputLayout-->
+<!--               android:layout_width="match_parent"-->
+<!--               android:layout_height="wrap_content"-->
+<!--               android:focusable="true"-->
+<!--               android:focusableInTouchMode="true"-->
+<!--               app:passwordToggleEnabled="true">-->
+
+<!--               <EditText-->
+<!--                   android:layout_width="match_parent"-->
+<!--                   android:layout_height="wrap_content"-->
+<!--                   android:hint="Confirm Password"-->
+<!--                   android:layout_marginTop="10dp"-->
+<!--                   android:textSize="20sp"-->
+<!--                   android:ems="10"-->
+<!--                   android:inputType="textPassword" />-->
+<!--           </com.google.android.material.textfield.TextInputLayout>-->
+
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="60dp"
+               android:textSize="20sp"
+               android:background="@drawable/button_rounded"
+               android:layout_marginTop="20dp"
+               android:id="@+id/signupBtn"
+               android:text="SIGN UP" />
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Already have an account? Login"
+               android:layout_marginTop="20dp"
+               android:textSize="22sp"
+               android:id="@+id/signinTxt"/>
+
+       </LinearLayout>
+
+   </ScrollView>
+
+
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
