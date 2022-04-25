@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class Signin extends AppCompatActivity {
     private EditText mEmail, mPassword;
     private TextView signupTxt, authStatus;
     private ImageView fingerAuth;
+    private ProgressBar progressBar;
     private FirebaseAuth mAuth;
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = db.getReference();
@@ -48,6 +50,7 @@ public class Signin extends AppCompatActivity {
         signupTxt = findViewById(R.id.signupTxt);
         login = findViewById(R.id.login);
         mEmail = findViewById(R.id.email_signin);
+        progressBar = findViewById(R.id.progressBar);
         mPassword = findViewById(R.id.password_signin);
         mAuth = FirebaseAuth.getInstance();
         fingerAuth = findViewById(R.id.fingerAuth);
@@ -112,6 +115,7 @@ public class Signin extends AppCompatActivity {
     private void loginUser() {
         String email = mEmail.getText().toString();
         String password = mPassword.getText().toString();
+        progressBar.setVisibility(View.VISIBLE);
 
         if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             if (!password.isEmpty()) {
@@ -120,6 +124,9 @@ public class Signin extends AppCompatActivity {
                            @Override
                            public void onSuccess(AuthResult authResult) {
                                Toast.makeText(Signin.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                               progressBar.setVisibility(View.GONE);
+
+                               //redirect into home activity
                                 startActivity(new Intent(Signin.this, MainActivity.class));
                                 finish();
                            }
@@ -127,15 +134,24 @@ public class Signin extends AppCompatActivity {
                    @Override
                    public void onFailure(@NonNull Exception e) {
                        Toast.makeText(Signin.this, "Login Failed !!", Toast.LENGTH_SHORT).show();
+                       progressBar.setVisibility(View.GONE);
                    }
                });
             } else {
+                progressBar.setVisibility(View.GONE);
                 mPassword.setError("Empty fields are not allowed");
             }
         } else if (email.isEmpty()) {
             mEmail.setError("Empty fields are not allowed");
+            progressBar.setVisibility(View.GONE);
+        }  else if (password.length() < 6) {
+            progressBar.setVisibility(View.GONE);
+            mPassword.setError("Min password length is 6 characters");
+            mPassword.requestFocus();
+            return;
         } else {
             mEmail.setError("Please enter correct email");
+            progressBar.setVisibility(View.GONE);
         }
 
     }
